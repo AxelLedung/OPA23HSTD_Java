@@ -74,6 +74,22 @@ public class Main {
             System.out.println(conditionString);
             conditionString = scanner.nextLine();
         }
-
+        //Uppgift 7
+        //Skriv ett program som ber användaren om ett nummer. Ge tillbaka numret multiplicerat
+        //med varje heltal som är lägre än det själv, alltså ifall man skriver in 5 får man tillbaka
+        //resultatet från 5*4*3*2*1. Testa att göra detta till en funktion som ger tillbaka numret
+        System.out.println("Skriv in ett nummer:");
+        int multiNum = scanner.nextInt();
+        int sumNum = 1;
+        int endNum = 0;
+        for (int i = multiNum; i > 0; i--) {
+            sumNum = i * sumNum;
+        }
+        System.out.println(sumNum);
+        //Uppgift 8
+        //Skriv ett program där man får skriva ned fem strängar. Om man skriver ned en sträng man
+        //redan har skrivit säger programmet till och ber en att skriva ett nytt i dess ställe. När alla är
+        //nedskrivna så ge tillbaks dem.
+        
     }
 }
