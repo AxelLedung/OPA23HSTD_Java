@@ -67,6 +67,13 @@ public class Main {
         //Uppgift 6
         //Skriv ett program som fortsätter fråga användaren om nummer tills de skriver ”sluta” eller
         //liknande. Då skall programmet ge tillbaka alla nummer adderade med varandra.
-
+        System.out.println("Skriv in så många nummer du vill:");
+        System.out.println("När du inte vill skriva fler nummer skriv: [sluta]");
+        String conditionString = scanner.nextLine();
+        while (!conditionString.equals("sluta")) {
+            System.out.println(conditionString);
+            conditionString = scanner.nextLine();
+        }
+        
     }
 }
