@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -90,6 +91,25 @@ public class Main {
         //Skriv ett program där man får skriva ned fem strängar. Om man skriver ned en sträng man
         //redan har skrivit säger programmet till och ber en att skriva ett nytt i dess ställe. När alla är
         //nedskrivna så ge tillbaks dem.
-        
+
+
+
+        //Har just nu feta logiska errors
+        ArrayList<String> stringArrayList = new ArrayList<String>();
+        for (int i = 0; i < 5; i++) {
+            String fiveString = scanner.nextLine();
+            System.out.println("Skriv 5 Strängar:");
+            for (int j = 0; j < stringArrayList.size(); j++) {
+                if (stringArrayList.get(j).equals(fiveString)) {
+                    System.out.println("Finns redan en, ändra den tidigare med vad:");
+                    stringArrayList.add(j, scanner.nextLine());
+                }
+            }
+            stringArrayList.add(fiveString);
+        }
+        /*for (int i = 0; i < stringArrayList.size(); i++) {
+            System.out.println(stringArrayList.get(i));
+        }*/
+        System.out.println(stringArrayList);
     }
 }
