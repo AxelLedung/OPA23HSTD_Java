@@ -74,6 +74,6 @@ public class Main {
             System.out.println(conditionString);
             conditionString = scanner.nextLine();
         }
-        
+
     }
 }
