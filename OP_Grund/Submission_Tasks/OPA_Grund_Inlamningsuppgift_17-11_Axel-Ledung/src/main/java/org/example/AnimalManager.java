@@ -33,7 +33,7 @@ public class AnimalManager {
                     RemoveAnimal();
                     break;
                 case 4:
-                    FeedAnimal(crop);
+                    FeedAnimals(crop);
                     break;
                 case 5:
                     return;
@@ -49,15 +49,87 @@ public class AnimalManager {
         }
     }
     private void ViewAnimals() {
-
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("                 YOUR ANIMALS");
+        System.out.println("-----------------------------------------------");
+        for (int i = 0; i < animalArrayList.size(); i++) {
+            System.out.println(animalArrayList.get(i).GetDescription());
+        }
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
     private void AddAnimal() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("             INSERT ANIMAL NAME");
+        System.out.println("-----------------------------------------------");
+        String animalName = scanner.nextLine();
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("              INSERT ANIMAL SPECIES");
+        System.out.println("-----------------------------------------------");
+        String animalSpecies = scanner.nextLine();
+        animalArrayList.add(new Animal(animalName, animalSpecies));
     }
     private void RemoveAnimal() {
-
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("               DELETE ANIMAL BY ID");
+        System.out.println("-----------------------------------------------");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int idDelete = Integer.parseInt(scanner.nextLine()) - 1;
+            if (animalArrayList.get(idDelete) != null) {
+                System.out.println("-----------------------------------------------");
+                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+                System.out.println("-----------------------------------------------");
+                System.out.println("        ARE YOU SURE YOU WANT TO DELETE:");
+                System.out.println("       Name: " + animalArrayList.get(idDelete).name + ", Species: " + animalArrayList.get(idDelete).getSpecies());
+                System.out.println("-----------------------------------------------");
+                System.out.println("1. YES DESTROY IT!");
+                System.out.println("2. No");
+                int deleteChoice = Integer.parseInt(scanner.nextLine());
+                switch (deleteChoice) {
+                    case 1:
+                        System.out.println("-----------------------------------------------");
+                        System.out.println("         Name: " + animalArrayList.get(idDelete).name + ", Species: " + animalArrayList.get(idDelete).getSpecies());
+                        System.out.println("         WAS DELETED FROM RAF-MS™");
+                        System.out.println("-----------------------------------------------");
+                        animalArrayList.remove(idDelete);
+                        scanner.nextLine();
+                        return;
+                    case 2:
+                        return;
+                    default:
+                }
+            }
+            else {
+                System.out.println("-----------------------------------------------");
+                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+                System.out.println("-----------------------------------------------");
+                System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
+                System.out.println("-----------------------------------------------");
+                scanner.nextLine();
+                return;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
+            System.out.println("-----------------------------------------------");
+            scanner.nextLine();
+            return;
+        }
     }
-    private void FeedAnimal(ArrayList<Crop> crop) {
+    private void FeedAnimals(ArrayList<Crop> crop) {
 
     }
     public ArrayList<Animal> GetAnimals() {

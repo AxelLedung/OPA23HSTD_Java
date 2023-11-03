@@ -15,7 +15,7 @@ public class Animal extends Entity{
 
     private ArrayList<Crop> acceptableCropTypes = new ArrayList<Crop>();
 
-    private static int nextAnimalId;
+    private static int nextAnimalId = 1;
     public Animal(String name, String species) {
         super(nextAnimalId, name);
         nextAnimalId++;
@@ -23,7 +23,7 @@ public class Animal extends Entity{
         this.name = name;
     }
     @Override public String GetDescription() {
-        return species;
+        return "ID: " + getId() + " Name: " + name + " Species: " + species;
     }
     public void Feed(Crop crop) {
 
