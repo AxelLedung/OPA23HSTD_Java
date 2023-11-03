@@ -14,4 +14,8 @@ public class Entity {
     public String GetDescription() {
         return id + " & " + name;
     }
+    public Entity (int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

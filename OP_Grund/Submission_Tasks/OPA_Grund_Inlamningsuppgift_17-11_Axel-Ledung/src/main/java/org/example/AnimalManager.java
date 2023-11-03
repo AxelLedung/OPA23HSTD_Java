@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.text.View;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,16 +24,16 @@ public class AnimalManager {
             input = Integer.parseInt(scanner.nextLine());
             switch (input) {
                 case 1:
-                    System.out.println("Function not added yet...................");
+                    ViewAnimals();
                     break;
                 case 2:
-                    System.out.println("Function not added yet...................");
+                    AddAnimal();
                     break;
                 case 3:
-                    System.out.println("Function not added yet...................");
+                    RemoveAnimal();
                     break;
                 case 4:
-                    System.out.println("Function not added yet...................");
+                    FeedAnimal(crop);
                     break;
                 case 5:
                     return;

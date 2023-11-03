@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CropManager {
-    ArrayList<Crop> cropList = new ArrayList<Crop>();
+    ArrayList<Crop> cropArrayList = new ArrayList<Crop>();
     public void CropMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------");
@@ -23,13 +23,13 @@ public class CropManager {
             input = Integer.parseInt(scanner.nextLine());
             switch (input) {
                 case 1:
-                    System.out.println("Function not added yet...................");
+                    ViewCrops();
                     break;
                 case 2:
-                    System.out.println("Function not added yet...................");
+                    AddCrop();
                     break;
                 case 3:
-                    System.out.println("Function not added yet...................");
+                    RemoveCrop();
                     break;
                 case 5:
                     return;
@@ -45,15 +45,132 @@ public class CropManager {
         }
     }
     private void ViewCrops() {
-
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("                 YOUR CROPS");
+        System.out.println("-----------------------------------------------");
+        for (int i = 0; i < cropArrayList.size(); i++) {
+            System.out.println(cropArrayList.get(i).GetDescription());
+        }
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
-    private void AddCrop(Crop crop, int quantity) {
+    private void AddCrop() {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("               INSERT CROP NAME");
+            System.out.println("-----------------------------------------------");
+            String cropName = scanner.nextLine();
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("               INSERT CROP TYPE");
+            System.out.println("-----------------------------------------------");
+            String cropType = scanner.nextLine();
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("               INSERT QUANTITY");
+            System.out.println("-----------------------------------------------");
+            String cropQuantity = scanner.nextLine();
+            if (cropArrayList.isEmpty()) {
 
+                System.out.println("-----------------------------------------------");
+                System.out.println("   THE SELECTED CROP WAS ADDED TO THE SYSTEM");
+                System.out.println("   CROP: " + cropName + " CROPTYPE: " + cropType + " QTY: " + cropQuantity);
+                cropArrayList.add(new Crop(cropName, cropType, Integer.parseInt(cropQuantity)));
+            }
+            else {
+                boolean cropExists = false;
+                int id = 0;
+                for (int i = 0; i < cropArrayList.size(); i++) {
+                    if (cropArrayList.get(i).getCropType().equals(cropType) && cropArrayList.get(i).name.equals(cropName)) {
+                        cropExists = true;
+                        id = i;
+                        i = cropArrayList.size();
+                    }
+                }
+                if (cropExists) {
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("   ADDED: " + cropQuantity + " TO " + cropArrayList.get(id).name);
+                    System.out.println("-----------------------------------------------");
+
+                    cropArrayList.get(id).AddCrop(Integer.parseInt(cropQuantity));
+                }
+                else {
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("   THE SELECTED CROP WAS ADDED TO THE SYSTEM");
+                    System.out.println("   CROP: " + cropName + " CROPTYPE: " + cropType + " QTY: " + cropQuantity);
+                    System.out.println("-----------------------------------------------");
+
+                    cropArrayList.add(new Crop(cropName, cropType, Integer.parseInt(cropQuantity)));
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Error with adding crops");
+        }
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
-    private void RemoveCrop(Crop crop, int quantity) {
-
+    private void RemoveCrop() {
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("               DELETE CROP BY ID");
+        System.out.println("-----------------------------------------------");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int idDelete = Integer.parseInt(scanner.nextLine()) - 1;
+            if (cropArrayList.get(idDelete) != null) {
+                System.out.println("-----------------------------------------------");
+                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+                System.out.println("-----------------------------------------------");
+                System.out.println("        ARE YOU SURE YOU WANT TO DELETE:");
+                System.out.println("       Crop: " + cropArrayList.get(idDelete).name + ", Croptype: " + cropArrayList.get(idDelete).getCropType());
+                System.out.println("-----------------------------------------------");
+                System.out.println("1. YES DESTROY IT!");
+                System.out.println("2. No");
+                int deleteChoice = Integer.parseInt(scanner.nextLine());
+                switch (deleteChoice) {
+                    case 1:
+                        System.out.println("-----------------------------------------------");
+                        System.out.println("       Crop: " + cropArrayList.get(idDelete).name + ", Croptype: " + cropArrayList.get(idDelete).getCropType());
+                        System.out.println("           WAS DELETED FROM RAF-MS™");
+                        System.out.println("-----------------------------------------------");
+                        cropArrayList.remove(idDelete);
+                        scanner.nextLine();
+                        return;
+                    case 2:
+                        return;
+                    default:
+                }
+            }
+            else {
+                System.out.println("-----------------------------------------------");
+                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+                System.out.println("-----------------------------------------------");
+                System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
+                System.out.println("-----------------------------------------------");
+                scanner.nextLine();
+                return;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
+            System.out.println("-----------------------------------------------");
+            scanner.nextLine();
+            return;
+        }
     }
     public ArrayList<Crop> GetCrops() {
-        return cropList;
+        return cropArrayList;
     }
 }
