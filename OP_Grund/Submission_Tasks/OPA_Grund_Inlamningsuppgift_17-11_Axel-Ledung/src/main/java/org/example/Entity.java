@@ -8,7 +8,7 @@ public class Entity {
         this.name = name;
     }
     public String GetDescription() {
-        return id + " & " + name;
+        return getId() + " & " + name;
     }
     public String GetCSV() {
         return getId() + "," + name;

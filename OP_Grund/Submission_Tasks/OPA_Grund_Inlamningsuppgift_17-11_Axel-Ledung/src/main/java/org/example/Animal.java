@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Animal extends Entity{
     private String species;
-    private ArrayList<Crop> acceptableCropTypes = new ArrayList<Crop>();
+    private ArrayList<String> acceptableCropTypes = new ArrayList<String>();
     private static int nextAnimalId = 1;
     public Animal(String name, String species) {
         super(nextAnimalId, name);

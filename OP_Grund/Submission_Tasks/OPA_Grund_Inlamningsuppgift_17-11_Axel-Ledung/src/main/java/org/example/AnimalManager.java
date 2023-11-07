@@ -86,7 +86,14 @@ public class AnimalManager {
         System.out.println("-----------------------------------------------");
         Scanner scanner = new Scanner(System.in);
         try {
-            int idDelete = Integer.parseInt(scanner.nextLine()) - 1;
+            int idInput = Integer.parseInt(scanner.nextLine());
+            int idDelete = -1;
+            for (int i = 0; i < animalArrayList.size(); i++) {
+                if (animalArrayList.get(i).getId() == idInput) {
+                    idDelete = i;
+                    break;
+                }
+            }
             if (animalArrayList.get(idDelete) != null) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("RAF-MS™ - Robust Amazing Farm Management System");

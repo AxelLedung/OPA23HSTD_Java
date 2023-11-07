@@ -3,6 +3,7 @@ package org.example;
 import com.sun.tools.javac.Main;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Farm {
@@ -60,6 +61,14 @@ public class Farm {
                 bufferedWriter.write(cropManager.cropArrayList.get(i).GetCSV());
                 if (i < cropManager.cropArrayList.size() - 1) {
                     bufferedWriter.newLine();
+                    System.out.println(i + "newLine");
+                }
+                else {
+                    System.out.println(i + "fail");
+                    ArrayList<Entity> entityArrayList = new ArrayList<Entity>();
+                    for( int j = 0; j < entityArrayList.size(); j++) {
+                        //System.out.println(entityArrayList.get(j).name);
+                    }
                 }
             }
             bufferedWriter.close();
@@ -69,6 +78,7 @@ public class Farm {
                 bufferedWriter.write(animalManager.animalArrayList.get(i).GetCSV());
                 if (i < cropManager.cropArrayList.size() - 1) {
                     bufferedWriter.newLine();
+                    System.out.println();
                 }
             }
             bufferedWriter.close();
