@@ -53,6 +53,8 @@ public class CropManager {
         for (int i = 0; i < cropArrayList.size(); i++) {
             System.out.println(cropArrayList.get(i).GetDescription());
         }
+        System.out.println("");
+        System.out.println("PRESS ENTER TO CONTINUE...");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
@@ -82,6 +84,9 @@ public class CropManager {
                 System.out.println("-----------------------------------------------");
                 System.out.println("   THE SELECTED CROP WAS ADDED TO THE SYSTEM");
                 System.out.println("   CROP: " + cropName + " CROPTYPE: " + cropType + " QTY: " + cropQuantity);
+                System.out.println("-----------------------------------------------");
+                System.out.println("");
+                System.out.println("PRESS ENTER TO CONTINUE...");
                 cropArrayList.add(new Crop(cropName, cropType, Integer.parseInt(cropQuantity)));
             }
             else {
@@ -98,7 +103,8 @@ public class CropManager {
                     System.out.println("-----------------------------------------------");
                     System.out.println("   ADDED: " + cropQuantity + " TO " + cropArrayList.get(id).name);
                     System.out.println("-----------------------------------------------");
-
+                    System.out.println("");
+                    System.out.println("PRESS ENTER TO CONTINUE...");
                     cropArrayList.get(id).AddCrop(Integer.parseInt(cropQuantity));
                 }
                 else {
@@ -106,7 +112,8 @@ public class CropManager {
                     System.out.println("   THE SELECTED CROP WAS ADDED TO THE SYSTEM");
                     System.out.println("   CROP: " + cropName + " CROPTYPE: " + cropType + " QTY: " + cropQuantity);
                     System.out.println("-----------------------------------------------");
-
+                    System.out.println("");
+                    System.out.println("PRESS ENTER TO CONTINUE...");
                     cropArrayList.add(new Crop(cropName, cropType, Integer.parseInt(cropQuantity)));
                 }
             }
@@ -130,7 +137,7 @@ public class CropManager {
                 System.out.println("-----------------------------------------------");
                 System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
                 System.out.println("-----------------------------------------------");
-                System.out.println("        ARE YOU SURE YOU WANT TO DELETE:");
+                System.out.println("       ARE YOU SURE YOU WANT TO DELETE:");
                 System.out.println("       Crop: " + cropArrayList.get(idDelete).name + ", Croptype: " + cropArrayList.get(idDelete).getCropType());
                 System.out.println("-----------------------------------------------");
                 System.out.println("1. YES DESTROY IT!");
@@ -142,6 +149,8 @@ public class CropManager {
                         System.out.println("       Crop: " + cropArrayList.get(idDelete).name + ", Croptype: " + cropArrayList.get(idDelete).getCropType());
                         System.out.println("           WAS DELETED FROM RAF-MS™");
                         System.out.println("-----------------------------------------------");
+                        System.out.println("");
+                        System.out.println("PRESS ENTER TO CONTINUE...");
                         cropArrayList.remove(idDelete);
                         scanner.nextLine();
                         return;
@@ -156,6 +165,8 @@ public class CropManager {
                 System.out.println("-----------------------------------------------");
                 System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
                 System.out.println("-----------------------------------------------");
+                System.out.println("");
+                System.out.println("PRESS ENTER TO CONTINUE...");
                 scanner.nextLine();
                 return;
             }
@@ -166,6 +177,8 @@ public class CropManager {
             System.out.println("-----------------------------------------------");
             System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
             System.out.println("-----------------------------------------------");
+            System.out.println("");
+            System.out.println("PRESS ENTER TO CONTINUE...");
             scanner.nextLine();
             return;
         }

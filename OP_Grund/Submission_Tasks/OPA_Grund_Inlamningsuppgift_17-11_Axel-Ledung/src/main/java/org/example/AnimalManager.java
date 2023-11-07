@@ -57,6 +57,8 @@ public class AnimalManager {
         for (int i = 0; i < animalArrayList.size(); i++) {
             System.out.println(animalArrayList.get(i).GetDescription());
         }
+        System.out.println("");
+        System.out.println("PRESS ENTER TO CONTINUE...");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
@@ -102,6 +104,8 @@ public class AnimalManager {
                         System.out.println("         WAS DELETED FROM RAF-MS™");
                         System.out.println("-----------------------------------------------");
                         animalArrayList.remove(idDelete);
+                        System.out.println("");
+                        System.out.println("PRESS ENTER TO CONTINUE...");
                         scanner.nextLine();
                         return;
                     case 2:
@@ -115,6 +119,8 @@ public class AnimalManager {
                 System.out.println("-----------------------------------------------");
                 System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
                 System.out.println("-----------------------------------------------");
+                System.out.println("");
+                System.out.println("PRESS ENTER TO CONTINUE...");
                 scanner.nextLine();
                 return;
             }
@@ -125,6 +131,8 @@ public class AnimalManager {
             System.out.println("-----------------------------------------------");
             System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
             System.out.println("-----------------------------------------------");
+            System.out.println("");
+            System.out.println("PRESS ENTER TO CONTINUE...");
             scanner.nextLine();
             return;
         }
