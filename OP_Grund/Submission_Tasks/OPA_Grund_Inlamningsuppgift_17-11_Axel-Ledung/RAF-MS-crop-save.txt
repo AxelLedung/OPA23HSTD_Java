@@ -1,9 +1,5 @@
 1,Wheat,Grains,25
-2,Carrot,Vegetable,25
+2,Carrot,Roots,25
 3,Pumpkin,Seeds,25
-4,Apple,Seeds,200
-5,Corn,Seeds,25
-6,Hopa,Seeds,25
-7,1251,125,125
-8,125,125,181
-9,3u2523,532532523,35325
+4,Walnut,Nut,60
+13,hej,hej,254890

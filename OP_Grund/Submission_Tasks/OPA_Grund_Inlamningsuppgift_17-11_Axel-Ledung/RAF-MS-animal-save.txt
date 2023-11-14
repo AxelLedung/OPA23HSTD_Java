@@ -1,9 +1,5 @@
 1,Bessy,Cow
 2,Lassie,Dog
-3,Puss in Boots,Cat
-4,Ulf,Cow
-5,Peppa,Pig
-6,aömömöaw,fwafömwalf
-7,ölwmfö,aöwlfmwaöl
-9,ölmawfawölm,aöwlmfawfölam
-11,awfaölwlmfaw,awlfmölawmf
+3,Petsson,Cat
+4,Lisa,Parrot
+9,hej,hej
