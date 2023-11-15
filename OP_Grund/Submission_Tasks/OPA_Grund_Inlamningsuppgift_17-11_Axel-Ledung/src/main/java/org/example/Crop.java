@@ -7,8 +7,17 @@ public class Crop extends Entity{
     public Crop(String name, String cropType, int quantity) {
         super(nextCropId, name);
         nextCropId++;
-        this.cropType = cropType;
         this.name = name;
+        this.cropType = cropType;
+        this.quantity = quantity;
+    }
+    public Crop(int id, String name, String cropType, int quantity) {
+        super(id, name);
+        if (id >= nextCropId) {
+            nextCropId = id + 1;
+        }
+        this.name = name;
+        this.cropType = cropType;
         this.quantity = quantity;
     }
     @Override public String GetDescription() {

@@ -1,5 +1,2 @@
-1,Bessy,Cow
-2,Lassie,Dog
-3,Petsson,Cat
-4,Lisa,Parrot
-9,hej,hej
+1,Hej,hej,Wheat
+5,Greger,Giraffe,Meat@Greens@Stop

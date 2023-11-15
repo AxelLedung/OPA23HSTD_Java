@@ -76,7 +76,24 @@ public class AnimalManager {
         System.out.println("              INSERT ANIMAL SPECIES");
         System.out.println("-----------------------------------------------");
         String animalSpecies = scanner.nextLine();
-        animalArrayList.add(new Animal(animalName, animalSpecies));
+        System.out.println("-----------------------------------------------");
+        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+        System.out.println("-----------------------------------------------");
+        System.out.println("   INSERT CROP TYPE THAT THIS ANIMAL CAN EAT   ");
+        System.out.println("-----------------------------------------------");
+        ArrayList<String> animalAcceptableCrops = new ArrayList<String>();
+        String input = scanner.nextLine();
+        while (!input.equals("stop")) {
+            animalAcceptableCrops.add(input);
+            System.out.println("-----------------------------------------------");
+            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
+            System.out.println("-----------------------------------------------");
+            System.out.println("     ADD ADDITIONAL CROP TYPES ANIMAL CAN EAT  ");
+            System.out.println("IF YOU DON'T WISH TO ADD CROP TYPES SAY: stop  ");
+            System.out.println("-----------------------------------------------");
+            input = scanner.nextLine();
+        }
+        animalArrayList.add(new Animal(animalName, animalSpecies, animalAcceptableCrops));
     }
     private void RemoveAnimal() {
         System.out.println("-----------------------------------------------");
@@ -145,7 +162,7 @@ public class AnimalManager {
         }
     }
     private void FeedAnimals(ArrayList<Crop> crop) {
-
+        
     }
     public ArrayList<Animal> GetAnimals() {
         return animalArrayList;

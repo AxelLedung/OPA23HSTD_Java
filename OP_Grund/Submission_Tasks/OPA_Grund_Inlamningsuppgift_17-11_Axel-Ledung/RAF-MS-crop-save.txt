@@ -2,4 +2,3 @@
 2,Carrot,Roots,25
 3,Pumpkin,Seeds,25
 4,Walnut,Nut,60
-13,hej,hej,254890
