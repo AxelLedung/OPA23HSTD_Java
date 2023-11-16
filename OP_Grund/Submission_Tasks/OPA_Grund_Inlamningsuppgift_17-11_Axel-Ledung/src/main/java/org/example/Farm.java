@@ -27,7 +27,6 @@ public class Farm {
         System.out.println("1. Manage Animals");
         System.out.println("2. Manage Crops");
         System.out.println("3. Save");
-        System.out.println("4. View Arrays");
         System.out.println("5. Exit");
         int input;
         try {
@@ -42,17 +41,6 @@ public class Farm {
                 case 3:
                     Save();
                     break;
-                case 4:
-                    System.out.println("Animals:");
-                    for (int i = 0; i < animalManager.animalArrayList.size(); i++) {
-                        System.out.println(animalManager.animalArrayList.get(i).GetDescription());
-                    }
-                    System.out.println("Crops:");
-                    for (int i = 0; i < cropManager.cropArrayList.size(); i++) {
-                        System.out.println(cropManager.cropArrayList.get(i).GetDescription());
-                    }
-                    break;
-
                 case 5:
                     System.out.println("Exiting RAF-MS™ - Robust Amazing Farm - Management System");
                     System.out.println("Exiting..................................................");
@@ -72,36 +60,28 @@ public class Farm {
         try {
             FileWriter fileWriter = new FileWriter(cropSaveFile);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < cropManager.cropArrayList.size(); i++) {
-                bufferedWriter.write(cropManager.cropArrayList.get(i).GetCSV());
-                if (i < cropManager.cropArrayList.size() - 1) {
+            for (int i = 0; i < cropManager.GetCrops().size(); i++) {
+                bufferedWriter.write(cropManager.GetCrops().get(i).GetCSV());
+                if (i < cropManager.GetCrops().size() - 1) {
                     bufferedWriter.newLine();
-                    System.out.println(cropManager.cropArrayList.get(i).name + " was Saved!");
-                }
-                else {
-                    System.out.println(cropManager.cropArrayList.get(i).name + " was Saved!");
-                    System.out.println("Crops, End of Line.");
                 }
             }
             bufferedWriter.close();
             fileWriter = new FileWriter(animalSaveFile);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < animalManager.animalArrayList.size(); i++) {
-                bufferedWriter.write(animalManager.animalArrayList.get(i).GetCSV());
-                if (i < animalManager.animalArrayList.size() - 1) {
-                    System.out.println(animalManager.animalArrayList.get(i).name + " was Saved");
+            for (int i = 0; i < animalManager.GetAnimals().size(); i++) {
+                bufferedWriter.write(animalManager.GetAnimals().get(i).GetCSV());
+                if (i < animalManager.GetAnimals().size() - 1) {
                     bufferedWriter.newLine();
-                }
-                else {
-                    System.out.println(animalManager.animalArrayList.get(i).name + " was Saved");
-                    System.out.println("Animals, End of Line.");
                 }
             }
             bufferedWriter.close();
+            System.out.println("Saved succesfully!");
             LoadCSV();
             return true;
         }
         catch (Exception e) {
+            System.out.println("Save failed...");
             LoadCSV();
             return false;
         }
@@ -111,7 +91,7 @@ public class Farm {
             FileReader fileReader = new FileReader(cropSaveFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = bufferedReader.readLine();
-            cropManager.cropArrayList.clear();
+            cropManager.GetCrops().clear();
             while (line != null) {
                 String[] variables = line.split(",");
                 int id = Integer.parseInt(variables[0]);
@@ -119,13 +99,13 @@ public class Farm {
                 String cropType = variables[2];
                 int quantity = Integer.parseInt(variables[3]);
                 Crop crop = new Crop(id, cropName, cropType, quantity);
-                cropManager.cropArrayList.add(crop);
+                cropManager.GetCrops().add(crop);
                 line = bufferedReader.readLine();
             }
             fileReader = new FileReader(animalSaveFile);
             bufferedReader = new BufferedReader(fileReader);
             line = bufferedReader.readLine();
-            animalManager.animalArrayList.clear();
+            animalManager.GetAnimals().clear();
             while (line != null) {
                 String[] variables = line.split(",");
                 int id = Integer.parseInt(variables[0]);
@@ -135,7 +115,7 @@ public class Farm {
                 ArrayList<String> acceptableFoodArrayList = new ArrayList<String>(Arrays.asList(acceptableFood));
 
                 Animal animal = new Animal(id, animalName, species, acceptableFoodArrayList);
-                animalManager.animalArrayList.add(animal);
+                animalManager.GetAnimals().add(animal);
                 line = bufferedReader.readLine();
             }
             return true;

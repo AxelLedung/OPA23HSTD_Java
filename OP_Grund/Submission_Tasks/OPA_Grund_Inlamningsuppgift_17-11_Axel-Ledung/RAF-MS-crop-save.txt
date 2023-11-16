@@ -1,4 +1,5 @@
-1,Wheat,Grains,25
+1,Wheat,Grains,24
 2,Carrot,Roots,25
 3,Pumpkin,Seeds,25
-4,Walnut,Nut,60
+4,Walnut,Nuts,60
+5,Truffles,Mushrooms,0

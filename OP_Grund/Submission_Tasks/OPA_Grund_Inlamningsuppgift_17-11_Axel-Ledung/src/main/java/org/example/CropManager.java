@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CropManager {
-    ArrayList<Crop> cropArrayList = new ArrayList<Crop>();
+    private ArrayList<Crop> cropArrayList = new ArrayList<Crop>();
     public void CropMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------------------------------------");

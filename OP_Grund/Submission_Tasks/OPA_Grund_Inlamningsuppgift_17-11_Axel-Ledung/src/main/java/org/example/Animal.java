@@ -47,7 +47,24 @@ public class Animal extends Entity{
         return getId() + "," + name + "," + species + "," + acceptableCropTypesString;
     }
     public void Feed(Crop crop) {
-
+        boolean inList = false;
+        for (int i = 0; i < acceptableCropTypes.size(); i++) {
+            if (crop.getCropType().equals(acceptableCropTypes.get(i))) {
+                inList = true;
+                break;
+            }
+        }
+        if (inList) {
+            if (crop.TakeCrop(1)) {
+                System.out.println("Successfully fed " + this.name + " with " + crop.name);
+            }
+            else {
+                System.out.println("You did not have enough " + crop.name + " to be able to feed " + this.name);
+            }
+        }
+        else {
+            System.out.println(this.name + " will not eat " + crop.name);
+        }
     }
     public String getSpecies() {
         return species;

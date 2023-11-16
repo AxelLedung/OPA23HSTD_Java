@@ -1,2 +1,5 @@
-1,Hej,hej,Wheat
-5,Greger,Giraffe,Meat@Greens@Stop
+1,Bessy,Cow,Grains@Straws
+2,Winston,Pig,Roots@Mushrooms
+3,Lassy,Cow,Grains
+4,Spirit,Horse,Straws
+5,Ken,Chicken,Seeds

@@ -35,7 +35,6 @@ public class Crop extends Entity{
             return true;
         }
         else {
-            System.out.println("Your resquest was not possible due to low quantity");
             return false;
         }
     }
