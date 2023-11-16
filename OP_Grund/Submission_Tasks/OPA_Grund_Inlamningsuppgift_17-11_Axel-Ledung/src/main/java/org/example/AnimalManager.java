@@ -9,11 +9,7 @@ public class AnimalManager {
     private ArrayList<Animal> animalArrayList = new ArrayList<Animal>();
     public void AnimalMenu(ArrayList<Crop> crops) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                ANIMAL MANAGER:");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("ANIMAL MANAGER:");
         System.out.println("1. View Animals");
         System.out.println("2. Add Animals");
         System.out.println("3. Remove Animals");
@@ -49,11 +45,7 @@ public class AnimalManager {
         }
     }
     private void ViewAnimals() {
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                 YOUR ANIMALS");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("YOUR ANIMALS");
         for (int i = 0; i < animalArrayList.size(); i++) {
             System.out.println(animalArrayList.get(i).GetDescription());
         }
@@ -64,30 +56,16 @@ public class AnimalManager {
     }
     private void AddAnimal() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("             INSERT ANIMAL NAME");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("INSERT ANIMAL NAME");
         String animalName = scanner.nextLine();
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("              INSERT ANIMAL SPECIES");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("INSERT ANIMAL SPECIES");
         String animalSpecies = scanner.nextLine();
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("   INSERT CROP TYPE THAT THIS ANIMAL CAN EAT   ");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("INSERT CROP TYPE THAT THIS ANIMAL CAN EAT");
         ArrayList<String> animalAcceptableCrops = new ArrayList<String>();
         String input = scanner.nextLine();
         while (!input.equals("stop")) {
             animalAcceptableCrops.add(input);
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
+            Menu.HeaderWithoutMessage();
             System.out.println("     ADD ADDITIONAL CROP TYPES ANIMAL CAN EAT  ");
             System.out.println("IF YOU DON'T WISH TO ADD CROP TYPES SAY: stop  ");
             System.out.println("-----------------------------------------------");
@@ -96,11 +74,7 @@ public class AnimalManager {
         animalArrayList.add(new Animal(animalName, animalSpecies, animalAcceptableCrops));
     }
     private void RemoveAnimal() {
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("               DELETE ANIMAL BY ID");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("DELETE ANIMAL BY ID");
         Scanner scanner = new Scanner(System.in);
         try {
             int idInput = Integer.parseInt(scanner.nextLine());
@@ -112,9 +86,7 @@ public class AnimalManager {
                 }
             }
             if (animalArrayList.get(idDelete) != null) {
-                System.out.println("-----------------------------------------------");
-                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-                System.out.println("-----------------------------------------------");
+                Menu.HeaderWithoutMessage();
                 System.out.println("        ARE YOU SURE YOU WANT TO DELETE:");
                 System.out.println("       Name: " + animalArrayList.get(idDelete).name + ", Species: " + animalArrayList.get(idDelete).getSpecies());
                 System.out.println("-----------------------------------------------");
@@ -127,9 +99,9 @@ public class AnimalManager {
                         System.out.println("         Name: " + animalArrayList.get(idDelete).name + ", Species: " + animalArrayList.get(idDelete).getSpecies());
                         System.out.println("         WAS DELETED FROM RAF-MS™");
                         System.out.println("-----------------------------------------------");
-                        animalArrayList.remove(idDelete);
                         System.out.println("");
                         System.out.println("PRESS ENTER TO CONTINUE...");
+                        animalArrayList.remove(idDelete);
                         scanner.nextLine();
                         return;
                     case 2:
@@ -138,45 +110,27 @@ public class AnimalManager {
                 }
             }
             else {
-                System.out.println("-----------------------------------------------");
-                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-                System.out.println("-----------------------------------------------");
-                System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
-                System.out.println("-----------------------------------------------");
+                Menu.Header("ANIMAL WITH THAT ID DOES NOT EXIST");
                 System.out.println("");
                 System.out.println("PRESS ENTER TO CONTINUE...");
                 scanner.nextLine();
-                return;
             }
         }
         catch (Exception e) {
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
-            System.out.println("       ANIMAL WITH THAT ID DOES NOT EXIST");
-            System.out.println("-----------------------------------------------");
+            Menu.Header("ANIMAL WITH THAT ID DOES NOT EXIST");
             System.out.println("");
             System.out.println("PRESS ENTER TO CONTINUE...");
             scanner.nextLine();
-            return;
         }
     }
     private void FeedAnimals(ArrayList<Crop> crops) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                 INPUT FOOD ID                 ");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("INPUT FOOD ID");
         for (int i = 0; i < crops.size(); i++) {
             System.out.println(crops.get(i).GetDescription());
         }
         String cropInput = scanner.nextLine();
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("  INPUT THE ID OF THE ANIMAL YOU WANT TO FEED  ");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("INPUT THE ID OF THE ANIMAL YOU WANT TO FEED");
         for (int i = 0; i < animalArrayList.size(); i++) {
             System.out.println(animalArrayList.get(i).GetDescription());
         }

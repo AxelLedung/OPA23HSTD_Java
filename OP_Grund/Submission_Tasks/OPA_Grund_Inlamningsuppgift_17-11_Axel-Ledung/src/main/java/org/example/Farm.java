@@ -19,11 +19,7 @@ public class Farm {
     }
     public void MainMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                   MAIN MENU");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("MAIN MENU");
         System.out.println("1. Manage Animals");
         System.out.println("2. Manage Crops");
         System.out.println("3. Save");
@@ -113,7 +109,6 @@ public class Farm {
                 String species = variables[2];
                 String[] acceptableFood = variables[3].split("@");
                 ArrayList<String> acceptableFoodArrayList = new ArrayList<String>(Arrays.asList(acceptableFood));
-
                 Animal animal = new Animal(id, animalName, species, acceptableFoodArrayList);
                 animalManager.GetAnimals().add(animal);
                 line = bufferedReader.readLine();

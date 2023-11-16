@@ -9,11 +9,7 @@ public class CropManager {
     private ArrayList<Crop> cropArrayList = new ArrayList<Crop>();
     public void CropMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-------------------------------------------------");
-        System.out.println("                CROPS MANAGER");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("CROPS MANAGER");
         System.out.println("1. View Crops");
         System.out.println("2. Add Crops");
         System.out.println("3. Remove Crops");
@@ -45,11 +41,7 @@ public class CropManager {
         }
     }
     private void ViewCrops() {
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                 YOUR CROPS");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("YOUR CROPS");
         for (int i = 0; i < cropArrayList.size(); i++) {
             System.out.println(cropArrayList.get(i).GetDescription());
         }
@@ -61,26 +53,13 @@ public class CropManager {
     private void AddCrop() {
         try {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
-            System.out.println("               INSERT CROP NAME");
-            System.out.println("-----------------------------------------------");
+            Menu.Header("INSERT CROP NAME");
             String cropName = scanner.nextLine();
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
-            System.out.println("               INSERT CROP TYPE");
-            System.out.println("-----------------------------------------------");
+            Menu.Header("INSERT CROP TYPE");
             String cropType = scanner.nextLine();
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
-            System.out.println("               INSERT QUANTITY");
-            System.out.println("-----------------------------------------------");
+            Menu.Header("INSERT QUANTITY");
             String cropQuantity = scanner.nextLine();
             if (cropArrayList.isEmpty()) {
-
                 System.out.println("-----------------------------------------------");
                 System.out.println("   THE SELECTED CROP WAS ADDED TO THE SYSTEM");
                 System.out.println("   CROP: " + cropName + " CROPTYPE: " + cropType + " QTY: " + cropQuantity);
@@ -125,11 +104,7 @@ public class CropManager {
         scanner.nextLine();
     }
     private void RemoveCrop() {
-        System.out.println("-----------------------------------------------");
-        System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-        System.out.println("-----------------------------------------------");
-        System.out.println("               DELETE CROP BY ID");
-        System.out.println("-----------------------------------------------");
+        Menu.Header("DELETE CROP BY ID");
         Scanner scanner = new Scanner(System.in);
         try {
             int idInput = Integer.parseInt(scanner.nextLine());
@@ -141,9 +116,7 @@ public class CropManager {
                 }
             }
             if (cropArrayList.get(idDelete) != null) {
-                System.out.println("-----------------------------------------------");
-                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-                System.out.println("-----------------------------------------------");
+                Menu.HeaderWithoutMessage();
                 System.out.println("       ARE YOU SURE YOU WANT TO DELETE:");
                 System.out.println("       Crop: " + cropArrayList.get(idDelete).name + ", Croptype: " + cropArrayList.get(idDelete).getCropType());
                 System.out.println("-----------------------------------------------");
@@ -167,11 +140,7 @@ public class CropManager {
                 }
             }
             else {
-                System.out.println("-----------------------------------------------");
-                System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-                System.out.println("-----------------------------------------------");
-                System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
-                System.out.println("-----------------------------------------------");
+                Menu.Header("CROP WITH THAT ID DOES NOT EXIST");
                 System.out.println("");
                 System.out.println("PRESS ENTER TO CONTINUE...");
                 scanner.nextLine();
@@ -179,11 +148,7 @@ public class CropManager {
             }
         }
         catch (Exception e) {
-            System.out.println("-----------------------------------------------");
-            System.out.println("RAF-MS™ - Robust Amazing Farm Management System");
-            System.out.println("-----------------------------------------------");
-            System.out.println("       CROP WITH THAT ID DOES NOT EXIST");
-            System.out.println("-----------------------------------------------");
+            Menu.Header("CROP WITH THAT ID DOES NOT EXIST");
             System.out.println("");
             System.out.println("PRESS ENTER TO CONTINUE...");
             scanner.nextLine();

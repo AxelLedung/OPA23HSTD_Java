@@ -3,3 +3,5 @@
 3,Lassy,Cow,Grains
 4,Spirit,Horse,Straws
 5,Ken,Chicken,Seeds
+7,Åsnan2,Åsna,Straw@Grains
+8,Nozdurmo,Drake,Meat
