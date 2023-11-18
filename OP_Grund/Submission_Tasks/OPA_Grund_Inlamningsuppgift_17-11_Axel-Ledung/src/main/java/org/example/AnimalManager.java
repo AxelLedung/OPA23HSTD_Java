@@ -71,7 +71,12 @@ public class AnimalManager {
             System.out.println("-----------------------------------------------");
             input = scanner.nextLine();
         }
-        animalArrayList.add(new Animal(animalName, animalSpecies, animalAcceptableCrops));
+        if (animalName.isEmpty() || animalSpecies.isEmpty() || animalAcceptableCrops.isEmpty()) {
+            System.out.println("You forgot to add something when adding your animal.");
+        }
+        else {
+            animalArrayList.add(new Animal(animalName, animalSpecies, animalAcceptableCrops));
+        }
     }
     private void RemoveAnimal() {
         Menu.Header("DELETE ANIMAL BY ID");
@@ -136,10 +141,24 @@ public class AnimalManager {
         }
         String animalInput = scanner.nextLine();
         try {
-            animalArrayList.get(Integer.parseInt(animalInput) - 1).Feed(crops.get(Integer.parseInt(cropInput) - 1));
+            int animalId = 0;
+            int cropId = 0;
+            for (int i = 0; i < animalArrayList.size(); i++) {
+                if (animalArrayList.get(i).getId() == Integer.parseInt(animalInput)) {
+                    animalId = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < crops.size(); i++) {
+                if (crops.get(i).getId() == Integer.parseInt(cropInput)) {
+                    cropId = i;
+                }
+            }
+            animalArrayList.get(animalId).Feed((crops.get(cropId)));
         }
         catch (Exception e) {
-            System.out.println("Error when feeding animal make sure to use ID when selecting Animal and Crop");
+            System.out.println("Error when feeding animal make sure to use ID when selecting Animal and Crop" + e);
+            System.out.println(animalInput);
         }
     }
     public ArrayList<Animal> GetAnimals() {

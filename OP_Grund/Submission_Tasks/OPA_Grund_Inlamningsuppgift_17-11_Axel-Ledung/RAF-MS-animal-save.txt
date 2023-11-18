@@ -5,3 +5,6 @@
 5,Ken,Chicken,Seeds
 7,Åsnan2,Åsna,Straw@Grains
 8,Nozdurmo,Drake,Meat
+9,Sara,Cat,Fish@Shrimp
+10,Börje,Gås,Fish@Grains
+12,Blitzen,Reindeer,Straws@Roots
